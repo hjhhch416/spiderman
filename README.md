@@ -139,6 +139,11 @@ ROS2 is used inside the robot for sensor and control data. MQTT is used between 
 
 Camera frames are not sent through MQTT. They are streamed separately through MJPEG. MQTT is used for small structured messages such as pose, bbox, detection results, state, and commands.
 
+---
+
+### 🎬 시연 영상
+[![해상선박선체검사AI로봇 시연영상](https://i.ytimg.com/vi/KMK6EfqXQ_Y/maxresdefault.jpg)](https://youtu.be/KMK6EfqXQ_Y)
+
 ## Notes
 
 - Large model files are not included. Put NCNN model files on the TurtleBot under `~/models/best_v5n_320_ncnn_model/`.
