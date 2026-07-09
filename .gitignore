@@ -1,0 +1,43 @@
+# Node / frontend
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ROS2 build outputs
+build/
+install/
+log/
+
+# Logs and runtime output
+*.log
+detection_logs/
+
+# Archives and generated payloads
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Models / large binaries
+*.onnx
+*.pt
+*.pth
+*.engine
+*.ncnn.bin
+*.ncnn.param
+models/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
