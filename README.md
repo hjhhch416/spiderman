@@ -1,4 +1,4 @@
-# Spiderman Ship Defect Dashboard
+# 해상 선박 선체 검사 AI 로봇
 
 ROS2 TurtleBot, Gazebo simulation, YOLO defect detection, and MQTT-based server dashboard integration project.
 
