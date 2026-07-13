@@ -9,7 +9,7 @@
 ![NCNN](https://img.shields.io/badge/NCNN-Optimization-808080)
 ![MQTT](https://img.shields.io/badge/MQTT-Mosquitto-green)
 
-> **인텔 엣지 AI SW 아카데미 9기 최종 프로젝트** 
+> **인텔 엣지 AI SW 아카데미 9기 최종 프로젝트**  🏅 [최종 프로젝트 경진대회 최우수상 수상]
 
 ---
 
