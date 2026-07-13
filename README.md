@@ -1,151 +1,80 @@
-# 해상 선박 선체 검사 AI 로봇
+# 🚢 해상 선박 선체 검사 AI 로봇
 
-ROS2 TurtleBot, Gazebo simulation, YOLO defect detection, and MQTT-based server dashboard integration project.
+![ROS2](https://img.shields.io/badge/ROS2-Humble-blue)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![Three.js](https://img.shields.io/badge/Three.js-black?logo=three.js)
+![YOLO](https://img.shields.io/badge/YOLOv5n-Edge_AI-yellow)
+![MQTT](https://img.shields.io/badge/MQTT-Mosquitto-green)
 
-## Overview
+> **인텔 엣지 AI SW 아카데미 9기 최종 프로젝트** 
 
-This repository contains the code used to connect a TurtleBot-based inspection robot to a Linux server dashboard.
+## 📖 프로젝트 개요
+> 기존 수작업에 의존하던 위험하고 고비용의 선박 하부 검사를 대체하기 위한 **수직 벽면 자율주행 및 AI 결함 탐지 로봇 관제 시스템**입니다.
 
-The main design is:
+## 🏗 시스템 아키텍처 (System Architecture)
+<img width="1450" height="1085" alt="KakaoTalk_20260706_003405807" src="https://github.com/user-attachments/assets/3a069887-4c33-49ba-9758-266b79934036" />
 
-- ROS2 handles robot-side sensing, odometry, camera, lidar, and local robot bringup.
-- MQTT sends lightweight data such as robot pose, YOLO detection results, bbox data, logs, and commands to the server.
-- MJPEG streams camera frames to the React dashboard.
-- Gazebo `/flat_odom` can be bridged to MQTT for simulation-driven 3D visualization.
-- The React dashboard displays Gazebo, a Three.js ship exterior model, robot position, YOLO camera, and defect markers.
+## 🌟 주요 기능
+* **수직 철판 자율 주행**: 34.5kgf(338N)의 네오디뮴을 이용하여 선박 외벽 등반 및 이동
+* **3D SLAM 및 자율 네비게이션**: CYG 3D LiDAR와 RTAB-Map, Nav2를 활용한 벽면 3D 매핑 및 장애물 회피 자율주행
+* **실시간 결함 탐지 (Edge AI)**: Raspberry Pi 4 환경에서 NCNN으로 최적화된 YOLOv5n 모델을 구동하여 크랙 및 부식 실시간 탐지 (mAP50 86.9%)
+* **3D 디지털 트윈 대시보드**: React와 Three.js를 활용하여 선박 외관을 3D로 렌더링하고, 로봇의 실시간 위치 및 결함 좌표를 시각화하는 관제 시스템
+* **경량 통신망**: ROS2 시스템과 웹 대시보드 간의 데이터를 MQTT(Mosquitto) 및 WebSockets를 통해 실시간/초저지연 송수신
 
-## Directory Structure
+### 💻 기술 스택 
+* **Hardware**: Raspberry Pi 5, TurtleBot3 (Waffle), CYG LiDAR D2, Pi Camera V2, OpenCR, Dynamixel XL430
+* **Robotics**: Ubuntu 22.04, ROS2 Humble, RTAB-Map, Nav2 
+* **AI/Vision**: OpenCV, YOLOv5n, NCNN 
+* **Frontend/Dashboard**: React, Three.js (@react-three/fiber), Zustand, Vite 
+* **Communication**: MQTT, WebSocket, MJPEG Stream
 
+## 📂 폴더 구조 (Directory Structure)
 ```text
-.
-├── dashboard/
-│   └── ship-defect-dashboard/       # React + Three.js dashboard
-├── bridges/
-│   ├── turtlebot/                   # TurtleBot camera, YOLO, pose bridge scripts
-│   └── gazebo/                      # Gazebo /flat_odom to MQTT bridge
-├── ros2_packages/                   # C++ ROS2 MQTT bridge package experiments
-├── scripts/
-│   ├── server/                      # Linux server setup script
-│   ├── turtlebot/                   # TurtleBot one-touch bringup script
-│   ├── windows/                     # Windows launcher scripts
-│   └── navigation/                  # Navigation bringup helper
-├── docs/                            # Dashboard/manual notes
-└── legacy/                          # Earlier static Three.js MQTT dashboard prototype
+📦 해상선박선체검사AI로봇
+ ┣ 📂 bridges/                   # ROS2 odom/pose 데이터를 MQTT로 변환하는 브릿지 코드
+ ┣ 📂 dashboard/                 # React & Three.js 기반 웹 대시보드 소스코드 (Vite)
+ ┣ 📂 docs/                      # 대시보드 및 시스템 실행 메뉴얼
+ ┣ 📂 robot_slam_nav_code/       # RTAB-Map 및 Nav2 기반 3D SLAM, 자율주행 ROS2 패키지
+ ┣ 📂 ros2_packages/             # 카메라 스트리밍 및 YOLO 결함 탐지 관련 ROS2 커스텀 노드
+ ┣ 📂 ps2_teleop_release/        # PS2 조이스틱 원격 수동 제어 패키지
+ ┣ 📂 scripts/                   # 로봇 Bringup 및 통합 실행 Bash 스크립트 모음
+ ┗ 📜 README.md
 ```
 
-## Current Runtime Architecture
+## 🚀 시작하기
 
-```text
-TurtleBot ROS2
-  ├─ /camera/image_raw
-  │    └─ raw_camera_mjpeg_server.py -> http://BOT_IP:8080/stream.mjpg
-  │          └─ server camera_proxy.py -> http://SERVER_IP:18080/stream.mjpg
-  ├─ YOLO NCNN detector
-  │    └─ MQTT: ship/crack_bot_01/detection/crack
-  └─ lidar / scan / robot bringup topics
+서버 PC(관제 대시보드 및 MQTT Broker)와 로봇(Raspberry Pi 4) 양쪽에서 각각 실행되어야 합니다.
 
-Gazebo Server
-  └─ /flat_odom
-       └─ gazebo_odom_to_mqtt.py -> MQTT: ship/crack_bot_01/state/pose
-
-React Dashboard
-  ├─ MQTT WebSocket: ws://SERVER_IP:9001
-  ├─ Camera stream: http://SERVER_IP:18080/stream.mjpg
-  ├─ Gazebo noVNC: http://SERVER_IP:6082/vnc_lite.html
-  └─ 3D ship model / YOLO bbox / defect markers
-```
-
-## Key Topics
-
-| Purpose | Topic |
-| --- | --- |
-| Gazebo/robot pose for dashboard | `ship/crack_bot_01/state/pose` |
-| YOLO defect detection | `ship/crack_bot_01/detection/crack` |
-| Navigation command | `ship/crack_bot_01/command/nav` |
-| TurtleBot camera source | `/camera/image_raw` |
-| Gazebo simulation pose source | `/flat_odom` |
-
-## Dashboard
-
-Path:
+### 💻 1. 서버 PC 세팅 (Dashboard & MQTT)
+서버 PC에서는 MQTT 브로커(Mosquitto)를 실행하고 관제용 웹 대시보드를 구동합니다.
 
 ```bash
-dashboard/ship-defect-dashboard
-```
+# 1. Mosquitto MQTT & WebSocket 실행 확인
+sudo systemctl status mosquitto
 
-Run locally or on the Linux server:
-
-```bash
+# 2. 대시보드 폴더로 이동 및 의존성 설치
+cd dashboard/ship-defect-dashboard
 npm install
-npm run dev -- --host 0.0.0.0
+
+# 3. 대시보드 실행
+npm run dev -- --host 0.0.0.0 --port 5173
 ```
 
-Default dashboard services used during testing:
-
-```text
-Dashboard:       http://10.91.214.129:5173
-MQTT WebSocket:  ws://10.91.214.129:9001
-MQTT TCP:        10.91.214.129:1883
-Camera proxy:    http://10.91.214.129:18080/stream.mjpg
-Gazebo noVNC:    http://10.91.214.129:6082/vnc_lite.html?autoconnect=1&resize=scale
-```
-
-## TurtleBot Bringup
-
-Main script:
+## 🤖 2. 로봇 세팅 (ROS2 & AI Vision)
+로봇(Raspberry Pi 5)에서는 하드웨어 센서 기동, SLAM/Nav2, YOLO 탐지 노드 및 통신 브릿지를 실행합니다.
 
 ```bash
-scripts/turtlebot/start_bot17_bridges_oneclick.sh
+# 1. 로봇 Bringup 및 센서(카메라 등) 구동
+bash ~/bin/bringup.sh
+ros2 launch turtlebot3_bringup camera.launch.py format:=BGR888
+
+# 2. 3D SLAM 매핑 또는 자율주행 실행 (목적에 따라 택 1)
+./scripts/real_robot_mapping.sh     # 맵 생성 모드
+./scripts/real_robot_navigation.sh  # 자율 주행 모드
+
+# 3. YOLO NCNN 객체 탐지 및 MQTT 브릿지 실행
+python3 detect_raw_ncnn_mqtt.py --broker [서버_IP] --image-topic /camera/image_raw
 ```
-
-Typical use on TurtleBot:
-
-```bash
-SERVER_IP=192.168.0.3 ROS_DOMAIN_ID=17 ./start_bot17_bridges_oneclick.sh
-```
-
-This starts:
-
-- TurtleBot bringup from `~/bin/bringup.sh`
-- Camera bringup
-- MJPEG camera bridge
-- YOLO NCNN MQTT bridge
-
-The TurtleBot-side `/odom` MQTT bridge is intentionally skipped in the current Gazebo-mode setup, because dashboard pose comes from Gazebo `/flat_odom`.
-
-## Gazebo MQTT Bridge
-
-Main script:
-
-```bash
-bridges/gazebo/start_gazebo_mqtt_bridge.sh
-```
-
-Typical use on the Linux server:
-
-```bash
-ROS_DOMAIN_ID=22 ODOM_TOPIC=/flat_odom ./start_gazebo_mqtt_bridge.sh
-```
-
-This publishes `/flat_odom` to:
-
-```text
-ship/crack_bot_01/state/pose
-```
-
-## Why MQTT
-
-ROS2 is used inside the robot for sensor and control data. MQTT is used between the robot/server/dashboard because it is lightweight, easy to consume from web/server software, and allows the dashboard to subscribe only to the topics it needs.
-
-Camera frames are not sent through MQTT. They are streamed separately through MJPEG. MQTT is used for small structured messages such as pose, bbox, detection results, state, and commands.
-
----
 
 ### 🎬 시연 영상
 [![해상선박선체검사AI로봇 시연영상](https://i.ytimg.com/vi/KMK6EfqXQ_Y/maxresdefault.jpg)](https://youtu.be/KMK6EfqXQ_Y)
-
-## Notes
-
-- Large model files are not included. Put NCNN model files on the TurtleBot under `~/models/best_v5n_320_ncnn_model/`.
-- Runtime logs, ROS build folders, `node_modules`, and generated archives are ignored.
-- See `docs/DASHBOARD_MANUAL.md` for the longer operation manual.
