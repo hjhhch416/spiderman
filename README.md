@@ -67,6 +67,27 @@
 
 ---
 
+## 🔬 기술적 세부 구현
+
+### 1. Robotics: 수직 벽면 자율주행 및 3D SLAM 고도화
+* **수직 환경을 위한 TF 및 좌표계 매핑**: 일반적인 평면 주행 로봇과 좌표계 기준이 다른 수직 환경을 고려하여 `base_footprint` -> `base_link` -> `laser_frame` 간의 정적 변환을 세밀하게 적용해 3D LiDAR 데이터를 2D SLAM에 투영했습니다.
+* **3D LiDAR 데이터 전처리**: Nav2 장애물 회피를 위해 `pointcloud_to_laserscan` 노드를 사용, 지면 노이즈 필터링을 위해 Z축 기준 `min_height: 0.12`, `max_height: 0.3` 영역만 슬라이싱하여 신뢰성을 높였습니다.
+* **Nav2 Costmap 튜닝**: 협소한 철판 위 주행을 위해 Robot Radius 0.15m, Inflation Radius 0.25m, Cost Scaling 10.0으로 파라미터를 최적화했습니다.
+
+### 2. Edge AI Vision: 자원 제약 환경에서의 실시간 탐지
+* **NCNN 기반 경량화**: 라즈베리파이에서 실시간 FPS를 확보하기 위해 PyTorch 모델을 NCNN 포맷(`.param`, `.bin`)으로 최적화하여 배포했습니다.
+* **커스텀 NMS 및 중복 탐지 필터링**: Bounding Box의 IoU가 0.45 이상이거나 중심점 거리 기반으로 동일 객체를 판별하여 대시보드로 불필요한 중복 데이터가 전송되는 것을 방지했습니다.
+
+### 3. Backend & Communication: C++ 기반 MQTT 브릿지
+* **비동기 초저지연 브릿지**: ROS2의 Odometry, Pose, 결함 정보 등을 웹 대시보드로 보내기 위해 Paho MQTT 라이브러리를 활용한 C++ 브릿지(`ship_crack_mqtt_bridge`)를 자체 개발했습니다.
+* **동적 상대 좌표계**: 주행 시작점을 `0,0` 원점으로 매핑하기 위해 첫 번째 수신된 오도메트리 값을 기준으로 삼는 `useRelativePose` 플래그 및 변환 로직을 설계했습니다.
+
+### 4. 3D Digital Twin Dashboard: React + Three.js
+* **Zustand 최적화**: 수신되는 로봇의 Pose와 결함 데이터를 Zustand로 전역 관리하며, 메모리 릭을 방지하기 위해 로봇 이동 궤적(Trail) 포인트를 최대 240개로 제한했습니다.
+* **3D 동적 프로젝션 (`projectToLeftWall`)**: 로봇에서 보내는 ROS2의 평면(2D) 맵 좌표를 Three.js 상의 3D 선박 모델의 좌측 수직 벽면(Left Wall) 공간에 정확히 매핑하기 위해 축 변환 및 프로젝션 로직을 자체 구현했습니다.
+
+---
+
 ## 🚀 시작하기
 
 서버 PC(관제 대시보드 및 MQTT Broker)와 로봇(Raspberry Pi 4) 양쪽에서 각각 실행되어야 합니다.
