@@ -99,3 +99,10 @@ python3 detect_raw_ncnn_mqtt.py --broker [서버_IP] --image-topic /camera/image
 
 ### 🎬 시연 영상
 [![해상선박선체검사AI로봇 시연영상](https://i.ytimg.com/vi/KMK6EfqXQ_Y/maxresdefault.jpg)](https://youtu.be/KMK6EfqXQ_Y)
+
+---
+
+## 💡 한계점 및 향후 과제 
+- 수직 철판 등반 시 발생하는 IMU와 휠 엔코더 간의 데이터 융합 오차 개선
+- 매끄러운 철판 환경에서 라이다(LiDAR) 특징점 매칭이 어려운 사각지대 한계 극복
+- 탐지 정확도 고도화를 위한 데이터셋 확충 및 모델 마이그레이션 (YOLOv5n → YOLO11n)
