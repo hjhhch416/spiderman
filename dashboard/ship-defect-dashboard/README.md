@@ -118,11 +118,11 @@ ROS theta (혹은 yaw) ➔ 로봇의 실시간 헤딩(진행 방향) 회전 각�
 ```
 
 ### 4. ROS2 MQTT 브릿지 구동 방법 (C++ Bridge)
-서버의 ~/spider_bot/cpp_mqtt_bridge 경로에 빌드되어 있는 C++ 기반 브릿지 노드를 구동하는 명령어입니다. 대시보드가 전송한 네비게이션 명령 토픽({base_topic}/command/nav)을 구독한 뒤, 이를 ROS2 Nav2 액션 서버(navigate_to_pose)의 액션 목표로 변환해 줍니다.
+서버에 빌드되어 있는 C++ 기반 브릿지 노드를 구동하는 명령어입니다. 대시보드가 전송한 네비게이션 명령 토픽(`{base_topic}/command/nav`)을 구독한 뒤, 이를 ROS2 Nav2 액션 서버(`navigate_to_pose`)의 액션 목표로 변환해 줍니다.
 
-```text
-# ROS2 작업 공간 이동 및 빌드 환경 소싱
-cd ~/spider_bot
+```bash
+# ROS2 작업 공간 이동 및 빌드 환경 소싱 (경로는 환경에 맞게 수정)
+cd ~/ros2_ws
 source /opt/ros/humble/setup.bash
 source install/setup.bash
 
@@ -130,7 +130,8 @@ source install/setup.bash
 ros2 run ship_crack_mqtt_bridge ship_crack_mqtt_bridge --ros-args \
   -p mqtt_server:=tcp://10.10.16.201:1883 \
   -p base_topic:=ship/crack_bot_01 \
-  -p pose_topic:=/odom \
+  -p odom_topic:=/odom \
+  -p pose_topic:=/amcl_pose \
   -p nav_action_name:=navigate_to_pose \
   -p nav_frame_id:=map
 ```
