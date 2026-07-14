@@ -88,43 +88,6 @@
 
 ---
 
-## 🚀 시작하기
-
-서버 PC(관제 대시보드 및 MQTT Broker)와 로봇(Raspberry Pi 4) 양쪽에서 각각 실행되어야 합니다.
-
-### 💻 1. 서버 PC 세팅 (Dashboard & MQTT)
-서버 PC에서는 MQTT 브로커(Mosquitto)를 실행하고 관제용 웹 대시보드를 구동합니다.
-
-```bash
-# 1. Mosquitto MQTT & WebSocket 실행 확인
-sudo systemctl status mosquitto
-
-# 2. 대시보드 폴더로 이동 및 의존성 설치
-cd dashboard/ship-defect-dashboard
-npm install
-
-# 3. 대시보드 실행
-npm run dev -- --host 0.0.0.0 --port 5173
-```
-
-## 🤖 2. 로봇 세팅 (ROS2 & AI Vision)
-로봇(Raspberry Pi 4)에서는 하드웨어 센서 기동, SLAM/Nav2, YOLO 탐지 노드 및 통신 브릿지를 실행합니다.
-
-```bash
-# 1. 로봇 Bringup 및 센서(카메라 등) 구동
-bash ~/bin/bringup.sh
-ros2 launch turtlebot3_bringup camera.launch.py format:=BGR888
-
-# 2. 3D SLAM 매핑 또는 자율주행 실행 (목적에 따라 택 1)
-./scripts/real_robot_mapping.sh     # 맵 생성 모드
-./scripts/real_robot_navigation.sh  # 자율 주행 모드
-
-# 3. YOLO NCNN 객체 탐지 및 MQTT 브릿지 실행
-python3 detect_raw_ncnn_mqtt.py --broker [서버_IP] --image-topic /camera/image_raw
-```
-
----
-
 ### 🎬 시연 영상
 [![해상선박선체검사AI로봇 시연영상](https://i.ytimg.com/vi/KMK6EfqXQ_Y/maxresdefault.jpg)](https://youtu.be/KMK6EfqXQ_Y)
 
