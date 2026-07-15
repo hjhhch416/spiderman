@@ -70,6 +70,10 @@
 ## 🤖 주요 기능 
 
 ### 1. 강자성체 기반 수직 벽면 구동 로봇 (Hardware)
+| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%ED%95%98%ED%8C%90%EC%9E%90%EC%84%9D%EB%B6%80%EC%B0%A9.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%ED%95%98%ED%8C%90%EC%9E%90%EC%84%9D%EB%B6%80%EC%B0%A9.png?raw=true" alt="로봇 하판 자석 부착" width="400" height="260" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%EA%B3%A1%EB%A9%B4%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%EA%B3%A1%EB%A9%B4%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg?raw=true" alt="로봇 곡면 테스트" width="400" height="260" /></a> |
+| :---: | :---: |
+| 🧲 **로봇 하판 자석 부착** | 🔄 **수직 등반** |
+
 * **안정적인 수직 등반 시스템**: 네오디뮴 자석 모듈과 캐터필러 궤도형 구동부를 결합하여 약 34.5kgf(338N)의 강력한 부착력을 확보했습니다. 이를 통해 선체의 거친 곡면이나 수직 철판에서도 미끄러짐 없이 부착되어 주행합니다.
 * **다중 센서 융합**: Raspberry Pi 5를 메인 제어부로 삼고 CYG 3D LiDAR, 카메라, IMU 센서를 탑재하여 주변 환경 인지 능력을 극대화했습니다.
 
