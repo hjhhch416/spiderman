@@ -37,7 +37,7 @@
 
 ---
 
-## 🏗 시스템 아키텍처 (System Architecture)
+## 🏗 시스템 아키텍처 
 <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B5%AC%EC%A1%B0.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B5%AC%EC%A1%B0.png?raw=true" width="1450" height="1085" alt="시스템 구조" /></a>
 
 ---
@@ -52,7 +52,7 @@
 
 ---
 
-## 📂 폴더 구조 (Directory Structure)
+## 📂 폴더 구조 
 ```text
 📦 해상선박선체검사AI로봇
  ┣ 📂 bridges/                   # ROS2 odom/pose 데이터를 MQTT로 변환하는 브릿지 코드
@@ -67,7 +67,7 @@
 
 ---
 
-## 🤖 주요 기능 (Key Features)
+## 🤖 주요 기능 
 
 ### 1. 강자성체 기반 수직 벽면 구동 로봇 (Hardware)
 * **안정적인 수직 등반 시스템**: 네오디뮴 자석 모듈과 캐터필러 궤도형 구동부를 결합하여 약 34.5kgf(338N)의 강력한 부착력을 확보했습니다. 이를 통해 선체의 거친 곡면이나 수직 철판에서도 미끄러짐 없이 부착되어 주행합니다.
