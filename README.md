@@ -30,7 +30,8 @@
 | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EC%88%98%EC%9E%91%EC%97%85%EA%B2%80%EC%82%AC.jpg"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EC%88%98%EC%9E%91%EC%97%85%EA%B2%80%EC%82%AC.jpg?raw=true" alt="수작업 안전 위험" width="400" height="260" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EA%B2%80%EC%82%AC%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4.jpg"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EA%B2%80%EC%82%AC%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4.jpg?raw=true" alt="선박 검사 프로세스의 고비용 및 저효율성" width="400" height="260" /></a> |
 | :---: | :---: |
 | ⚠️ **수작업 안전 위험** | 📉 **선박 검사 프로세스의 고비용 및 저효율성** |
-
+> 최근 해양 산업의 확대는 선박 외벽 정기 점검의 중요성을 증대시키고 있습니다. 그러나 기존 수작업 선체 외벽 점검은 높은 위험과 과도한 비용, 낮은 효율성이라는 구조적 한계가 있습니다.
+> 
 > 본 프로젝트는 기존 수작업에 의존하여 고비용, 저효율성 및 인명 사고의 위험성을 내포하고 있던 선박 외벽 검사 작업을 자동화하기 위한 '수직 벽면 자율주행 로봇 및 AI 기반 결함 탐지 통합 관제 시스템'입니다.
 > 
 > 강자성체 기반의 하드웨어 기술과 ROS2, AI 비전 알고리즘, 그리고 웹 관제 기술을 융합하여 선체 유지보수 프로세스의 디지털 전환을 목표로 합니다.
