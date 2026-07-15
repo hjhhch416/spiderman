@@ -26,8 +26,8 @@
   
 ---
 
-## 🌟 개발 배경 
-| <img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EC%88%98%EC%9E%91%EC%97%85%EA%B2%80%EC%82%AC.jpg?raw=true" alt="수작업 안전 위험" width="400" height="260" /> | <img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EA%B2%80%EC%82%AC%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4.jpg?raw=true" alt="선박 검사 프로세스의 고비용 및 저효율성" width="400" height="260" /> |
+## 🌟 개발 배경  
+| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EC%88%98%EC%9E%91%EC%97%85%EA%B2%80%EC%82%AC.jpg"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EC%88%98%EC%9E%91%EC%97%85%EA%B2%80%EC%82%AC.jpg?raw=true" alt="수작업 안전 위험" width="400" height="260" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EA%B2%80%EC%82%AC%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4.jpg"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%84%A0%EB%B0%95%EA%B2%80%EC%82%AC%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4.jpg?raw=true" alt="선박 검사 프로세스의 고비용 및 저효율성" width="400" height="260" /></a> |
 | :---: | :---: |
 | ⚠️ **수작업 안전 위험** | 📉 **선박 검사 프로세스의 고비용 및 저효율성** |
 
