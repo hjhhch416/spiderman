@@ -87,9 +87,9 @@
 * **실제 철판 환경 최적화 (2D 매핑 및 자율주행)**: 실제 수직 철판의 매끄러운 표면 특성과 라이다(LiDAR) 화각 제한 등의 물리적 제약을 극복하기 위해, 실물 로봇에서는 2D 평면화 기반의 수동 SLAM 매핑으로 최적화했습니다. 
 
 ### 3. Edge AI 실시간 결함 탐지 (AI Vision)
-| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/YOLO%20%EA%B0%9D%EC%B2%B4%20%ED%83%90%EC%A7%80.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/YOLO%20%EA%B0%9D%EC%B2%B4%20%ED%83%90%EC%A7%80.png?raw=true" alt="YOLO 객체 탐지" width="400" height="350" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B.png?raw=true" alt="이미지 데이터셋" width="400" height="350" /></a> |
-| :---: | :---: |
-| 🔍 **YOLO 객체 탐지** | 📂 **이미지 데이터셋** |
+| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/YOLO%20%EA%B0%9D%EC%B2%B4%20%ED%83%90%EC%A7%80.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/YOLO%20%EA%B0%9D%EC%B2%B4%20%ED%83%90%EC%A7%80.png?raw=true" alt="YOLO 객체 탐지" width="300" height="350" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B.png?raw=true" alt="이미지 데이터셋" width="300" height="350" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EA%B0%9D%EC%B2%B4%20%ED%83%90%EC%A7%80%20%EC%A0%95%ED%99%95%EB%8F%84.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EA%B0%9D%EC%B2%B4%20%ED%83%90%EC%A7%80%20%EC%A0%95%ED%99%95%EB%8F%84.png?raw=true" alt="객체 탐지 정확도" width="300" height="350" /></a> |
+| :---: | :---: | :---: |
+| 🔍 **YOLO 객체 탐지** | 📂 **이미지 데이터셋** | 📈 **객체 탐지 정확도** |
 
 * **YOLOv5n 및 NCNN 경량화**: 임베디드 환경(Raspberry Pi 4)에서 실시간으로 끊김 없이 작동하도록 무거운 PyTorch 모델 대신 NCNN 프레임워크로 최적화된 YOLO 모델을 구동합니다.
 * **높은 탐지 정확도**: 선박 표면의 균열(Crack) 및 부식(Corrosion)을 실시간으로 식별하며, 자체 구축한 900장의 이미지 데이터셋을 바탕으로 객체 검출 정확도 mAP50 기준 86.9%를 달성했습니다.
