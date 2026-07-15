@@ -70,7 +70,7 @@
 ## 🤖 주요 기능 
 
 ### 1. 강자성체 기반 수직 벽면 구동 로봇 (Hardware)
-| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%ED%95%98%ED%8C%90%EC%9E%90%EC%84%9D%EB%B6%80%EC%B0%A9.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%ED%95%98%ED%8C%90%EC%9E%90%EC%84%9D%EB%B6%80%EC%B0%A9.png?raw=true" alt="로봇 하판 자석 부착" width="400" height="260" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%EA%B3%A1%EB%A9%B4%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%EA%B3%A1%EB%A9%B4%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg?raw=true" alt="로봇 곡면 테스트" width="400" height="260" /></a> |
+| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%ED%95%98%ED%8C%90%EC%9E%90%EC%84%9D%EB%B6%80%EC%B0%A9.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%ED%95%98%ED%8C%90%EC%9E%90%EC%84%9D%EB%B6%80%EC%B0%A9.png?raw=true" alt="로봇 하판 자석 부착" width="400" height="350" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%EA%B3%A1%EB%A9%B4%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%A1%9C%EB%B4%87%EA%B3%A1%EB%A9%B4%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg?raw=true" alt="로봇 곡면 테스트" width="400" height="350" /></a> |
 | :---: | :---: |
 | 🧲 **로봇 하판 자석 부착** | 🔄 **곡률 표면 적응력** |
 
@@ -78,6 +78,10 @@
 * **다중 센서 융합**: Raspberry Pi 5를 메인 제어부로 삼고 CYG 3D LiDAR, 카메라, IMU 센서를 탑재하여 주변 환경 인지 능력을 극대화했습니다.
 
 ### 2. ROS2 기반 SLAM 및 자율 주행 (Robotics)
+| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/2D%20%ED%8F%89%EB%A9%B4%ED%99%94%20%EC%9E%91%EC%97%85.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/2D%20%ED%8F%89%EB%A9%B4%ED%99%94%20%EC%9E%91%EC%97%85.png?raw=true" alt="2D 평면화 작업" width="400" height="350" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%A4%EC%8B%9C%EA%B0%84%20SLAM%EC%9C%BC%EB%A1%9C%20%EC%A7%80%EB%8F%84%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%9E%90%EC%9C%A8%EC%A3%BC%ED%96%89.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%A4%EC%8B%9C%EA%B0%84%20SLAM%EC%9C%BC%EB%A1%9C%20%EC%A7%80%EB%8F%84%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%9E%90%EC%9C%A8%EC%A3%BC%ED%96%89.png?raw=true" alt="실시간 SLAM으로 지도 생성 및 자율주행" width="400" height="350" /></a> |
+| :---: | :---: |
+| 🗺️ **2D 평면화 작업** | 🤖 **실시간 SLAM 지도 생성 및 자율주행** |
+
 * **시뮬레이션(Gazebo) 기반 3D SLAM 구현**: 가상 디지털 트윈 환경(Gazebo)에서 RTAB-Map과 다중 센서를 융합하여 선체 벽면의 정밀한 3D 지도를 실시간으로 생성(3D SLAM)하는 아키텍처를 완성했습니다.
 * **실제 철판 환경 최적화 (2D 매핑 및 자율주행)**: 실제 수직 철판의 매끄러운 표면 특성과 라이다(LiDAR) 화각 제한 등의 물리적 제약을 극복하기 위해, 실물 로봇에서는 2D 평면화 기반의 수동 SLAM 매핑으로 최적화했습니다. 
 
