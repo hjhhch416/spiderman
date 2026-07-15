@@ -94,6 +94,10 @@
 * **높은 탐지 정확도**: 선박 표면의 균열(Crack) 및 부식(Corrosion)을 실시간으로 식별하며, 자체 구축한 900장의 이미지 데이터셋을 바탕으로 객체 검출 정확도 mAP50 기준 86.9%를 달성했습니다.
 
 ### 4. 3D 디지털 트윈 통합 관제 대시보드 (Web/Dashboard)
+| <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EA%B2%B0%ED%95%A8%20%EC%9C%84%EC%B9%98.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EA%B2%B0%ED%95%A8%20%EC%9C%84%EC%B9%98.png?raw=true" alt="결함 위치 시각화" width="400" height="350" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81.png?raw=true" alt="대시보드 모니터링" width="400" height="350" /></a> |
+| :---: | :---: |
+| 📍 **결함 위치 시각화** | 📊 **대시보드 모니터링** |
+
 * **초저지연 실시간 모니터링**: 경량 통신망인 MQTT와 MJPEG 스트리밍을 통해 로봇의 실시간 주행 위치(Pose), 배터리 상태, 카메라 뷰, 결함 데이터를 원격 서버에서 지연 없이 모니터링합니다.
 * **3D 렌더링 및 실시간 로깅**: React와 Three.js를 활용하여 선박 외관을 3D로 시각화합니다. 탐지된 결함 좌표는 3D 공간에 시각적 마커로 표시되며, 향후 유지보수를 위해 JSONL 형태의 파일로 실시간 로깅됩니다.
 
