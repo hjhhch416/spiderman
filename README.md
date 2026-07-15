@@ -38,7 +38,7 @@
 ---
 
 ## 🏗 시스템 아키텍처 (System Architecture)
-<img width="1450" height="1085" alt="KakaoTalk_20260706_003405807" src="https://github.com/user-attachments/assets/3a069887-4c33-49ba-9758-266b79934036" />
+<a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B5%AC%EC%A1%B0.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B5%AC%EC%A1%B0.png?raw=true" width="1450" height="1085" alt="시스템 구조" /></a>
 
 ---
 
