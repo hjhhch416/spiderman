@@ -76,7 +76,7 @@
 | 🧲 **로봇 하판 자석 부착** | 🔄 **곡률 표면 적응력** |
 
 * **안정적인 수직 등반 시스템**: 네오디뮴 자석 모듈과 캐터필러 궤도형 구동부를 결합하여 약 34.5kgf(338N)의 강력한 부착력을 확보했습니다. 이를 통해 선체의 거친 곡면이나 수직 철판에서도 미끄러짐 없이 부착되어 주행합니다.
-* **다중 센서 융합**: Raspberry Pi 5를 메인 제어부로 삼고 CYG 3D LiDAR, 카메라, IMU 센서를 탑재하여 주변 환경 인지 능력을 극대화했습니다.
+* **다중 센서 융합**: Raspberry Pi 4를 메인 제어부로 삼고 CYG 3D LiDAR, 카메라, IMU 센서를 탑재하여 주변 환경 인지 능력을 극대화했습니다.
 
 ### 2. ROS2 기반 SLAM 및 자율 주행 (Robotics)
 | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/2D%20%ED%8F%89%EB%A9%B4%ED%99%94%20%EC%9E%91%EC%97%85.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/2D%20%ED%8F%89%EB%A9%B4%ED%99%94%20%EC%9E%91%EC%97%85.png?raw=true" alt="2D 평면화 작업" width="400" height="350" /></a> | <a href="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%A4%EC%8B%9C%EA%B0%84%20SLAM%EC%9C%BC%EB%A1%9C%20%EC%A7%80%EB%8F%84%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%9E%90%EC%9C%A8%EC%A3%BC%ED%96%89.png"><img src="https://github.com/hjhhch416/spiderman/blob/main/images/%EC%8B%A4%EC%8B%9C%EA%B0%84%20SLAM%EC%9C%BC%EB%A1%9C%20%EC%A7%80%EB%8F%84%20%EC%83%9D%EC%84%B1%20%EB%B0%8F%20%EC%9E%90%EC%9C%A8%EC%A3%BC%ED%96%89.png?raw=true" alt="실시간 SLAM으로 지도 생성 및 자율주행" width="400" height="350" /></a> |
